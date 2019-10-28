@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/contentCard"
+        android:layout_margin="@dimen/dimen_small"
+        app:cardCornerRadius="@dimen/dimen_small">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_large">
+
+        <ImageView
+                android:id="@+id/contentImage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contentTitle" />
+
+        <TextView
+                android:id="@+id/nsfw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
+                android:layout_marginEnd="@dimen/dimen_small"
+                android:textColor="@android:color/holo_red_dark"
+                tools:text="TEST" />
+
+        <TextView
+                android:id="@+id/contentTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_small"
+                android:layout_marginTop="@dimen/dimen_small"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/contentImage"
+                app:layout_constraintEnd_toStartOf="@+id/contentId"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test Title" />
+
+        <TextView
+                android:id="@+id/contentId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_marginTop="@dimen/dimen_small"
+                android:layout_marginEnd="@dimen/dimen_small"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Test Content"/>
+
+
+        <View
+                android:background="@color/separatorGrey"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_separator"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

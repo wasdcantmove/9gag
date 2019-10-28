@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">9GAG</string>
+
+    <string name="error">Error</string>
+
+    <string name="tab_hot">Hot</string>
+    <string name="tab_fresh">Fresh</string>
+    <string name="tab_trending">Trending</string>
+</resources>

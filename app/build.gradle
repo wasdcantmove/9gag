@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.1"
+    defaultConfig {
+        applicationId "com.test.gag"
+        minSdkVersion project.min_sdk_version
+        targetSdkVersion project.target_sdk_version
+        versionCode 1
+        multiDexEnabled true
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
+
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.constraintlayout:constraintlayout-solver:$constraint_layout_version"
+
+    api "android.arch.navigation:navigation-fragment-ktx:$android_navigation_version"
+    api "android.arch.navigation:navigation-ui-ktx:$android_navigation_version"
+
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    implementation "android.arch.paging:runtime:$android_paging_version"
+    implementation "android.arch.paging:rxjava2:$android_paging_version"
+
+    implementation 'androidx.room:room-runtime:2.2.1'
+    annotationProcessor 'androidx.room:room-compiler:2.2.1'
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+
+    api "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    api "androidx.room:room-rxjava2:$room_version"
+    api "androidx.core:core-ktx:$ktx_version"
+
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$rx_retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "joda-time:joda-time:$jodatime_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    testImplementation "junit:junit:$junit_version"
+
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockito_kotlin"
+    testImplementation "org.assertj:assertj-core:$assertJ_version"
+    testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+
+    compile 'com.android.support:customtabs:28.3.0'
+
+}

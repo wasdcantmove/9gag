@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_large">200dp</dimen>
+    <dimen name="dimen_small">8dp</dimen>
+    <dimen name="dimen_separator">1dp</dimen>
+    <dimen name="dimen_medium">16dp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+
+    <dimen name="dimen_refresh_button">24dp</dimen>
+</resources>
