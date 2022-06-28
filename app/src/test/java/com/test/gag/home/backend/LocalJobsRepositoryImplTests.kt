@@ -30,7 +30,7 @@ class LocalContentsRepositoryImplTests {
     fun setUp() {
         repo = LocalContentRepositoryImpl(db)
 
-        whenever(db.ContentDao()).thenReturn(contentDao)
+        whenever(db.contentDao()).thenReturn(contentDao)
     }
 
     @Test

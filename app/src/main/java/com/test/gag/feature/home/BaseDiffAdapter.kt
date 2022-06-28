@@ -1,32 +1,22 @@
 package com.test.gag.feature.home
 
 import android.annotation.SuppressLint
-import android.view.View
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
+
 const val VIEW_TYPE_NORMAL = 0
-const val VIEW_TYPE_LOADING = 1
+const val VIEW_TYPE_VIDEO = 1
 const val VIEW_TYPE_AD = 2
 
 abstract class BaseDiffAdapter<T, ViewHolder : RecyclerView.ViewHolder>(diffCallback: DiffUtil.ItemCallback<T> = defaultCallback.defaultDiffCallback()) :
     ListAdapter<T, ViewHolder>(diffCallback) {
 
-    var loading: Boolean = true
-        set(value) {
-            field = value
-            if (!loading) {
-                notifyDataSetChanged()
-            }
-        }
-
-    protected inner class LoadingViewHolder(view: View) : RecyclerView.ViewHolder(view)
-
     override fun getItemViewType(position: Int): Int {
         return when {
-            position % 2 == 0 -> VIEW_TYPE_AD
-            loading && position == itemCount - 1 -> VIEW_TYPE_LOADING
+            position % 5 == 0 && position != 0 -> VIEW_TYPE_AD
+            position == 3 -> VIEW_TYPE_VIDEO
             else -> VIEW_TYPE_NORMAL
         }
     }

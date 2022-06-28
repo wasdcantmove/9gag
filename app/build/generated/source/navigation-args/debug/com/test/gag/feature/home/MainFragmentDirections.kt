@@ -6,20 +6,22 @@ import com.test.gag.R
 import kotlin.Int
 import kotlin.Long
 
-class MainFragmentDirections private constructor() {
-    private data class ActionHotFragmentToViewImageFragment(val selectedImage: Long) : NavDirections
-            {
-        override fun getActionId(): Int = R.id.action_hotFragment_to_viewImageFragment
+public class MainFragmentDirections private constructor() {
+  private data class ActionHotFragmentToViewImageFragment(
+    public val selectedImage: Long
+  ) : NavDirections {
+    public override val actionId: Int = R.id.action_hotFragment_to_viewImageFragment
 
-        override fun getArguments(): Bundle {
-            val result = Bundle()
-            result.putLong("selectedImage", this.selectedImage)
-            return result
-        }
-    }
+    public override val arguments: Bundle
+      get() {
+        val result = Bundle()
+        result.putLong("selectedImage", this.selectedImage)
+        return result
+      }
+  }
 
-    companion object {
-        fun actionHotFragmentToViewImageFragment(selectedImage: Long): NavDirections =
-                ActionHotFragmentToViewImageFragment(selectedImage)
-    }
+  public companion object {
+    public fun actionHotFragmentToViewImageFragment(selectedImage: Long): NavDirections =
+        ActionHotFragmentToViewImageFragment(selectedImage)
+  }
 }

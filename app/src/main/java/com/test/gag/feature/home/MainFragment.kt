@@ -4,30 +4,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayoutMediator
 import com.test.gag.R
 import com.test.gag.app.App
 import com.test.gag.app.BaseFragment
 import kotlinx.android.synthetic.main.main_fragment.*
-import javax.inject.Inject
-
 
 class MainFragment : BaseFragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.main_fragment, container, false).apply {
         }
+    }
+
+    override fun onResume() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        super.onResume()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         (activity?.application as App)
-            .component()
+            .appComponent
             .inject(this)
     }
 
@@ -37,16 +43,30 @@ class MainFragment : BaseFragment() {
 
     }
 
-    private fun setupViewPager(viewPager: ViewPager) {
+    private fun setupViewPager(viewPager: ViewPager2) {
 
-        val titles = listOf(getString(R.string.tab_hot), getString(R.string.tab_fresh), getString(R.string.tab_trending))
-
-        val adapter = TabbedPageAdapter(childFragmentManager, titles)
-        adapter.addFragment(HotFragment())
-        adapter.addFragment(FreshFragment())
-        adapter.addFragment(TrendingFragment())
-
-        gagsTab.setupWithViewPager(viewPager)
+        val adapter = TabbedPageAdapter(context as FragmentActivity, pages, titles)
         viewPager.adapter = adapter
+        TabLayoutMediator(gagsTab, viewPager) { tab, position ->
+            tab.text = titles[position]
+        }.attach()
+    }
+
+    private val titles: Array<String> by lazy {
+        arrayOf(
+            getString(R.string.tab_hot),
+            getString(R.string.tab_fresh),
+            getString(R.string.tab_trending)
+        )
+    }
+
+    companion object {
+        private val pages: Array<BaseFragment> by lazy {
+            arrayOf(
+                HotFragment(),
+                FreshFragment(),
+                TrendingFragment()
+            )
+        }
     }
 }

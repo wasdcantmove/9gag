@@ -11,7 +11,7 @@ abstract class BaseFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         (requireActivity().applicationContext
-                as App).component().inject(this)
+                as App).appComponent.inject(this)
 
     }
 }

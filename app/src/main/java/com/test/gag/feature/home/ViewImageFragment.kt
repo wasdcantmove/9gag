@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -15,19 +16,15 @@ import com.test.gag.app.App
 import com.test.gag.app.BaseFragment
 import com.test.gag.db.models.Gag
 import com.test.gag.extensions.observeEvent
-import kotlinx.android.synthetic.main.view_image_layout.*
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.image_view_layout.*
 
 
+@AndroidEntryPoint
 class ViewImageFragment : BaseFragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-
-    private val viewImageViewModel: ViewImageViewModel by lazy {
-        ViewModelProviders.of(this, viewModelFactory)[ViewImageViewModel::class.java]
-    }
+    private val viewImageViewModel: ViewImageViewModel by viewModels()
+    private var adapter: CommentsAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +32,7 @@ class ViewImageFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View =
         inflater.inflate(
-            R.layout.view_image_layout,
+            R.layout.image_view_layout,
             container,
             false
         ).apply { setupContentView() }
@@ -44,16 +41,27 @@ class ViewImageFragment : BaseFragment() {
         observeEvent(viewImageViewModel.gag, ::setUpView)
     }
 
+    override fun onResume() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        super.onResume()
+    }
+
     private fun setUpView(gag: Gag?) {
         title.text = gag?.title
         glideWith(gag?.url)
+    }
+
+    private fun setupRecyclerView() {
+        adapter = CommentsAdapter(viewImageViewModel.loadComments())
+        commentsRv.layoutManager = LinearLayoutManager(context)
+        commentsRv.adapter = adapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         (requireActivity().application as App)
-            .component()
+            .appComponent
             .inject(this)
     }
 
@@ -65,20 +73,21 @@ class ViewImageFragment : BaseFragment() {
                 .let {
                     viewImageViewModel.imageId(it.selectedImage)
                 }
-
         }
+        setupRecyclerView()
     }
 
     private fun glideWith(imageUrl: String?) {
         Glide
             .with(this)
             .load(imageUrl)
+            .fallback(R.drawable.not_found_image)
             .apply(
                 RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             )
             .transition(DrawableTransitionOptions.withCrossFade())
-            .into(contentImage)
+            .into(selectedImage)
     }
 
 }

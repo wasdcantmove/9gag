@@ -20,4 +20,7 @@ interface ContentDao {
     @Query("SELECT * FROM content ORDER BY id")
     fun loadContentSingle(): Single<DbContent>
 
+    @Query("DELETE FROM content")
+    fun deleteAll()
+
 }

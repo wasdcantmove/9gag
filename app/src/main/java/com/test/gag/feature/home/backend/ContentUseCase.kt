@@ -11,7 +11,8 @@ interface ContentUseCase {
     fun loadLocalContentPaging(): Observable<List<Gag?>?>?
     fun loadLocalRepo(selectedImage: Long): Observable<List<Gag?>>?
     fun loadContent(): Single<Content?>
-    fun loadContentNext(): Single<Content?>
+    fun loadContentNext(page: Long): Single<Content?>
+    fun deleteAll(): Completable
 }
 
 class ContentUseCaseImpl(
@@ -22,8 +23,12 @@ class ContentUseCaseImpl(
     override fun loadLocalContentPaging(): Observable<List<Gag?>?>? =
         localRepo.loadContentPaging()
 
-    override fun loadContentNext(): Single<Content?> =
-        remoteRepo.getContentNext().doAfterSuccess { it?.data?.gags?.let { it1 -> saveContentPaging(it1) } }
+    override fun loadContentNext(page: Long): Single<Content?> =
+        remoteRepo.getContentNext(page)
+            .doAfterSuccess { it?.data?.gags?.let { it1 -> saveContentPaging(it1) } }
+
+    override fun deleteAll(): Completable =
+        localRepo.deleteContent()
 
     override fun saveContentPaging(items: List<Gag?>?): Completable =
         localRepo.storeContent(items)
@@ -32,6 +37,7 @@ class ContentUseCaseImpl(
         localRepo.loadSingleImage(selectedImage)
 
     override fun loadContent(): Single<Content?> =
-        remoteRepo.getContent().doAfterSuccess { it?.data?.gags?.let { it1 -> saveContentPaging(it1) } }
+        remoteRepo.getContent()
+            .doAfterSuccess { it?.data?.gags?.let { it1 -> saveContentPaging(it1) } }
 }
 

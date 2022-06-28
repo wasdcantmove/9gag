@@ -6,21 +6,21 @@ data class Content(
 )
 
 data class Data(
-    val gags: List<Gag>,
-    val has_next: Boolean,
-    val next_page: String
+    val gags: List<Gag>?,
+    val has_next: Boolean?,
+    val next_page: String?
 )
 
 data class Gag(
-    val _id: Long,
-    val height: Int,
-    val nsfw: String,
-    val title: String,
-    val type: String,
-    val url: String,
-    val width: Int
+    val _id: Long?,
+    val height: Int?,
+    val nsfw: String?,
+    val title: String?,
+    val type: String?,
+    val url: String?,
+    val width: Int?
 )
 
 data class Meta(
-    val code: Int
+    val code: Int?
 )

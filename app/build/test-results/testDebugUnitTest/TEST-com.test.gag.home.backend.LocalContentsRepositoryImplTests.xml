@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.test.gag.home.backend.LocalContentsRepositoryImplTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-06-28T08:06:16" hostname="Accedos-MacBook-Pro-2.local" time="1.263">
+  <properties/>
+  <testcase name="loadContents calls database for Deliveries" classname="com.test.gag.home.backend.LocalContentsRepositoryImplTests" time="1.182"/>
+  <testcase name="retrieved deliveries returned is correctly converted" classname="com.test.gag.home.backend.LocalContentsRepositoryImplTests" time="0.008"/>
+  <testcase name="storeContent calls db to store items" classname="com.test.gag.home.backend.LocalContentsRepositoryImplTests" time="0.071"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

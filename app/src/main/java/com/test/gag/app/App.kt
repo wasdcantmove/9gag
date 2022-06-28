@@ -1,26 +1,20 @@
 package com.test.gag.app
 
 import android.app.Application
-import com.test.gag.dagger.AppComponent
-import com.test.gag.dagger.DaggerAppComponent
-import com.test.gag.dagger.modules.AppModule
+import com.test.gag.hilt.AppComponent
+import com.test.gag.hilt.DaggerAppComponent
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
-
-    private lateinit var component: AppComponent
-
-    override fun onCreate() {
-        super.onCreate()
-
-        component = DaggerAppComponent
-            .builder()
-            .appModule(AppModule(this))
-            .build()
-
-        component.inject(this)
-
+    // Instance of the AppComponent that will be used by all the Activities in the project
+    val appComponent: AppComponent by lazy {
+        initializeComponent()
     }
 
-    fun component() = component
-
+    open fun initializeComponent(): AppComponent {
+        // Creates an instance of AppComponent using its Factory constructor
+        // We pass the applicationContext that will be used as Context in the graph
+        return DaggerAppComponent.factory().create(applicationContext)
+    }
 }

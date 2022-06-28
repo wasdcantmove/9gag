@@ -1,43 +1,17 @@
 package com.test.gag.feature.home.dagger
 
-import androidx.lifecycle.ViewModel
 import com.test.gag.api.ContentRetrofitApi
-import com.test.gag.dagger.modules.ViewModelKey
 import com.test.gag.db.ContentDatabase
-import com.test.gag.feature.home.MainViewModel
-import com.test.gag.feature.home.ViewImageViewModel
 import com.test.gag.feature.home.backend.*
-import com.test.gag.util.runner.RxRunner
 import dagger.Module
 import dagger.Provides
-import dagger.multibindings.IntoMap
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 
 @Module
+@InstallIn(SingletonComponent::class)
 class MainModule {
-
-    @Provides
-    @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    fun provideMainFragmentViewModel(
-        runner: RxRunner,
-        useCase: ContentUseCase
-    ): ViewModel =
-        MainViewModel(
-            runner,
-            useCase
-        )
-
-    @Provides
-    @IntoMap
-    @ViewModelKey(ViewImageViewModel::class)
-    fun provideViewImageViewModel(
-        localContentRepository: LocalContentRepository,
-        runner: RxRunner
-    ): ViewModel = ViewImageViewModel(
-        localContentRepository,
-        runner
-    )
 
     @Provides
     fun providesLocalContentRepository(

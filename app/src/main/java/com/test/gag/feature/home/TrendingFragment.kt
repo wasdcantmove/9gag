@@ -10,9 +10,10 @@ import androidx.core.content.ContextCompat
 import com.test.gag.R
 import com.test.gag.app.App
 import com.test.gag.app.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fresh_fragment_layout.*
 
-
+@AndroidEntryPoint
 class TrendingFragment : BaseFragment() {
 
     override fun onCreateView(
@@ -26,13 +27,12 @@ class TrendingFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
 
         (requireActivity().application as App)
-            .component()
+            .appComponent
             .inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         imageView.setOnClickListener {
             context?.let { it1 -> ContextCompat.getColor(it1, R.color.colorPrimary) }?.let { it2 ->
                 CustomTabsIntent

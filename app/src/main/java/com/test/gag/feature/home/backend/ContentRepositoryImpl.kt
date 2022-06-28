@@ -8,10 +8,10 @@ import io.reactivex.Single
 class ContentRepositoryImpl(private val retrofitApi: ContentRetrofitApi) :
     ContentRepository {
 
-    override fun getContent(): Single<Content?> =
+    override fun getContent(): Single<Content> =
         retrofitApi.getContent().map(ContentConverter::fromApiModel)
 
-    override fun getContentNext(): Single<Content?> =
-        retrofitApi.getContentNext().map(ContentConverter::fromApiModel)
+    override fun getContentNext(page: Long): Single<Content?> =
+        retrofitApi.getContentNext(page).map(ContentConverter::fromApiModel)
 
 }

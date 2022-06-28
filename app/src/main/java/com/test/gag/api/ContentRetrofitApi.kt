@@ -4,23 +4,24 @@ import com.test.gag.BuildConfig
 import com.test.gag.api.models.ApiContent
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ContentRetrofitApi {
 
     companion object {
 
         val url = if (BuildConfig.DEBUG) {
-            "http://mock-api.9gaginc.com"
+            "https://mock-api.9gaginc.com/"
         } else {
             //live environment
             ""
         }
     }
 
-    @GET(" ")
+    @GET("0")
     fun getContent(): Single<ApiContent>
 
-    @GET("next_page")
-    fun getContentNext(): Single<ApiContent>
+    @GET("{page}")
+    fun getContentNext(@Path("page") page: Long): Single<ApiContent>
 
 }

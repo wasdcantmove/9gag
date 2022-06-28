@@ -14,21 +14,31 @@ object ContentConverter {
             toMeta(content.meta)
         )
 
-    private fun toMeta(meta: ApiMeta): Meta =
-        Meta(meta.code)
+    private fun toMeta(meta: ApiMeta?): Meta =
+        Meta(meta?.code)
 
-    private fun toData(data: ApiData): Data =
+    private fun toData(data: ApiData?): Data =
         Data(
-            toGags(data.gags),
-            data.has_next,
-            data.next_page
+            toGags(data?.gags),
+            data?.has_next,
+            data?.next_page
         )
 
-    private fun toGags(gags: List<ApiGag>): List<Gag> =
-        gags.map { Gag(it._id, it.height, it.nsfw, it.title, it.type, formatUrl(it.url), it.width) }
+    private fun toGags(gags: List<ApiGag?>?): List<Gag>? =
+        gags?.map {
+            Gag(
+                it?._id,
+                it?.height,
+                it?.nsfw,
+                it?.title,
+                it?.type,
+                formatUrl(it?.url),
+                it?.width
+            )
+        }
 
-    private fun formatUrl(url: String): String =
-            url.replace("http", "https")
+    private fun formatUrl(url: String?): String? =
+        url?.replace("http", "https")
 
 
 }

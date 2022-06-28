@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/nav_home"
-        app:startDestination="@id/mainFragment">
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/mainFragment">
     <fragment
-            android:id="@+id/mainFragment"
-            tools:layout="@layout/main_fragment"
-            android:name="com.test.gag.feature.home.MainFragment"
-            android:label="MainFragment">
+        android:id="@+id/mainFragment"
+        android:name="com.test.gag.feature.home.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/main_fragment">
         <action
-                android:id="@+id/action_hotFragment_to_viewImageFragment"
-                app:destination="@id/viewImageFragment"
-                app:enterAnim="@anim/slide_up"
-                app:exitAnim="@anim/stay"
-                app:launchSingleTop="true"
-                app:popEnterAnim="@anim/stay"
-                app:popExitAnim="@anim/slide_down"
-                app:popUpTo="@+id/mainFragment"
-                app:popUpToInclusive="false" />
+            android:id="@+id/action_hotFragment_to_viewImageFragment"
+            app:destination="@id/viewImageFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/stay"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/stay"
+            app:popExitAnim="@anim/slide_down"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="false" />
 
 
     </fragment>
     <fragment
-            android:id="@+id/viewImageFragment"
-            android:name="com.test.gag.feature.home.ViewImageFragment"
-            android:label="ViewImageFragment">
+        android:id="@+id/viewImageFragment"
+        android:name="com.test.gag.feature.home.ViewImageFragment"
+        android:label="ViewImageFragment">
         <argument
-                android:name="selectedImage"
-                app:argType="long"/>
+            android:name="selectedImage"
+            app:argType="long" />
     </fragment>
 </navigation>
