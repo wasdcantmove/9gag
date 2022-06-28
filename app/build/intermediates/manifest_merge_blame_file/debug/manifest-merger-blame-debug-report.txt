@@ -6,13 +6,13 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
-8-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml
+8-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml
+9-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:6:5-67
-11-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:6:22-64
+11-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:6:5-67
+11-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:6:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 12-->[com.google.android.gms:play-services-ads-lite:21.0.0] /Users/liam.waddell/.gradle/caches/transforms-3/f8fdf37d2630ce13c80b58db020b2f21/transformed/jetified-play-services-ads-lite-21.0.0/AndroidManifest.xml:24:5-79
 12-->[com.google.android.gms:play-services-ads-lite:21.0.0] /Users/liam.waddell/.gradle/caches/transforms-3/f8fdf37d2630ce13c80b58db020b2f21/transformed/jetified-play-services-ads-lite-21.0.0/AndroidManifest.xml:24:22-76
@@ -59,62 +59,62 @@
 34-->[androidx.work:work-runtime:2.7.0] /Users/liam.waddell/.gradle/caches/transforms-3/6d18eee4de87baec286b67ffebe8a518/transformed/work-runtime-2.7.0/AndroidManifest.xml:28:22-74
 35
 36    <application
-36-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:8:5-36:19
+36-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:8:5-36:19
 37        android:name="com.test.gag.app.App"
-37-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:9:9-32
+37-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:9:9-32
 38        android:allowBackup="true"
-38-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:10:9-35
+38-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:10:9-35
 39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 39-->[androidx.core:core:1.8.0] /Users/liam.waddell/.gradle/caches/transforms-3/4a50d32a35e98e58555423e16ff89ab8/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 40        android:debuggable="true"
 41        android:extractNativeLibs="false"
 42        android:icon="@mipmap/ic_launcher"
-42-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:11:9-43
+42-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:11:9-43
 43        android:label="@string/app_name"
-43-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:12:9-41
+43-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:12:9-41
 44        android:networkSecurityConfig="@xml/network_security_config"
-44-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:13:9-69
+44-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:13:9-69
 45        android:roundIcon="@mipmap/ic_launcher_round"
-45-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:14:9-54
+45-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:14:9-54
 46        android:supportsRtl="true"
-46-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:15:9-35
+46-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:15:9-35
 47        android:testOnly="true"
 48        android:theme="@style/AppTheme" >
-48-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:16:9-40
+48-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:16:9-40
 49        <activity
-49-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:19:9-28:20
+49-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:19:9-28:20
 50            android:name="com.test.gag.feature.home.MainActivity"
-50-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:20:13-54
+50-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:20:13-54
 51            android:configChanges="orientation"
-51-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:21:13-48
+51-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:21:13-48
 52            android:exported="true"
-52-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:22:13-36
+52-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:22:13-36
 53            android:screenOrientation="fullSensor" >
-53-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:23:13-51
+53-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:23:13-51
 54            <intent-filter>
-54-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:24:13-27:29
+54-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:24:13-27:29
 55                <action android:name="android.intent.action.MAIN" />
-55-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:25:17-69
-55-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:25:25-66
+55-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:25:17-69
+55-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:25:25-66
 56
 57                <category android:name="android.intent.category.LAUNCHER" />
-57-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:26:17-77
-57-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:26:27-74
+57-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:26:17-77
+57-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:26:27-74
 58            </intent-filter>
 59        </activity>
 60
 61        <meta-data
-61-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:30:9-32:70
+61-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:30:9-32:70
 62            android:name="com.google.android.gms.ads.APPLICATION_ID"
-62-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:31:13-69
+62-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:31:13-69
 63            android:value="ca-app-pub-3940256099942544~6300978111" />
-63-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:32:13-67
+63-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:32:13-67
 64        <meta-data
-64-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:33:9-35:69
+64-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:33:9-35:69
 65            android:name="com.google.android.gms.version"
-65-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:34:13-58
+65-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:34:13-58
 66            android:value="@integer/google_play_services_version" />
-66-->/Users/liam.waddell/Downloads/9gag-master/app/src/main/AndroidManifest.xml:35:13-66
+66-->/Users/liam.waddell/9gag/app/src/main/AndroidManifest.xml:35:13-66
 67        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
 68        <activity
 68-->[com.google.android.gms:play-services-ads-lite:21.0.0] /Users/liam.waddell/.gradle/caches/transforms-3/f8fdf37d2630ce13c80b58db020b2f21/transformed/jetified-play-services-ads-lite-21.0.0/AndroidManifest.xml:49:9-53:64

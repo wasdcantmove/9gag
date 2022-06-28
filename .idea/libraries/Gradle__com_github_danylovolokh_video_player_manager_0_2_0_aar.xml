@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.danylovolokh:video-player-manager:0.2.0@aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-3/cfd8fe6f15b108f1914b7488d329b28c/transformed/jetified-video-player-manager-0.2.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/cfd8fe6f15b108f1914b7488d329b28c/transformed/jetified-video-player-manager-0.2.0/res" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-3/cfd8fe6f15b108f1914b7488d329b28c/transformed/jetified-video-player-manager-0.2.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.github.danylovolokh/video-player-manager/0.2.0/b837cf6e1b327451ac71aa25e9076f8013b50ec5/video-player-manager-0.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.github.danylovolokh/video-player-manager/0.2.0/640cca3e76bc7e6fafd466e9e771c8aa32a45f94/video-player-manager-0.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
